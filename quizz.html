@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz do Jazzghost - Teste Seus Conhecimentos!</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            color: #FFD700;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .quiz-container {
+            background-color: #111111;
+            border: 1px solid #FFD700;
+            padding: 40px;
+            max-width: 600px;
+            width: 90%;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(255,215,0,0.2);
+            text-align: center;
+        }
+        .quiz-title {
+            font-size: 2em;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-in;
+            text-shadow: 0 0 10px #FFD700;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .question {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            animation: slideIn 0.5s ease-out;
+            color: #FFD700;
+            border-bottom: 1px solid #FFD700;
+            padding-bottom: 10px;
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .option {
+            padding: 15px;
+            background: #222222;
+            border: 1px solid #FFD700;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #FFD700;
+            font-weight: bold;
+        }
+        .option:hover {
+            background: #FFD700;
+            color: #000000;
+            transform: translateX(5px) scale(1.02);
+            box-shadow: 0 5px 15px rgba(255,215,0,0.4);
+        }
+        .option.correct {
+            background: #FFD700;
+            color: #000000;
+            animation: pulse 0.6s ease-in-out;
+            border-color: #FFA500;
+        }
+        .option.incorrect {
+            background: #FF4500;
+            color: #FFFFFF;
+            animation: shake 0.5s ease-in-out;
+            border-color: #FF4500;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); box-shadow: 0 0 20px #FFD700; }
+            100% { transform: scale(1); }
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+        button {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #000000;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 20px auto;
+            box-shadow: 0 4px 10px rgba(255,215,0,0.3);
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(255,215,0,0.5);
+        }
+        #result {
+            text-align: center;
+            font-size: 1.5em;
+            margin-top: 20px;
+            animation: fadeIn 1s;
+            color: #FFD700;
+            text-shadow: 0 0 10px #FFD700;
+        }
+        #result h3 {
+            color: #FFD700;
+        }
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            color: #FFD700;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .secret-reveal {
+            margin-top: 20px;
+            font-size: 1.3em;
+            color: #FFD700;
+            animation: glow 2s infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #FFD700; }
+            to { text-shadow: 0 0 30px #FFD700, 0 0 40px #FFA500; }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h2 class="quiz-title">Quiz do Jazzghost - Teste Seus Conhecimentos! (Estilo Gênio Quiz - 16 Perguntas!)</h2>
+        <p style="text-align: center; color: #FFD700;">Clique nas opções para responder! Ao errar, volta ao início com grito do Goku. Ao acertar, confetti + som de Dragon Ball Super!</p>
+        <div id="quiz-container">
+            <div id="question-container"></div>
+            <button id="next-btn" onclick="nextQuestion()" style="display: none;">Próxima Pergunta</button>
+            <div id="result"></div>
+        </div>
+        <a href="index.html" class="back-link">← Voltar ao Site Principal</a>
+    </div>
+
+    <!-- Sons (substitua por arquivos locais se preferir) -->
+    <audio id="gokuScream" src="grito.mp3"></audio>
+    <audio id="dbsSound" src="dbs.mp3"></audio>
+
+    <script>
+        const quizData = [
+            {
+                question: "Qual é o nome real do Jazzghost?",
+                options: ["Juliano Barros", "João Silva", "Pedro Santos", "Lucas Oliveira"],
+                correct: 0
+            },
+            {
+                question: "Em que ano Jazzghost começou seu canal no YouTube?",
+                options: ["2010", "2012", "2015", "2018"],
+                correct: 1
+            },
+            {
+                question: "Quantos anos Jazzghost tem em 2025?",
+                options: ["30", "32", "34", "36"],
+                correct: 2
+            },
+            {
+                question: "Qual é o foco inicial dos vídeos do Jazzghost?",
+                options: ["FIFA", "Minecraft", "Fortnite", "GTA"],
+                correct: 1
+            },
+            {
+                question: "Quem é a ex-namorada do Jazzghost, também YouTuber?",
+                options: ["Cherryrar", "Lia Camargo", "Gabi Oliveira", "Nanda Ferreira"],
+                correct: 0
+            },
+            {
+                question: "Qual jogo de terror é muito jogado por ele?",
+                options: ["Among Us", "Granny", "Roblox", "Candy Crush"],
+                correct: 1
+            },
+            {
+                question: "Qual é a cidade natal do Jazzghost?",
+                options: ["Belo Horizonte", "Rio de Janeiro", "São Paulo", "Salvador"],
+                correct: 0
+            },
+            {
+                question: "Qual o estado onde Jazzghost nasceu?",
+                options: ["Minas Gerais", "São Paulo", "Rio de Janeiro", "Bahia"],
+                correct: 0
+            },
+            {
+                question: "Qual a data exata de criação do canal do Jazzghost?",
+                options: ["23/10/2012", "27/02/1991", "01/01/2012", "15/11/2013"],
+                correct: 0
+            },
+            {
+                question: "Qual o e-mail de contato mencionado nos vídeos do Jazzghost?",
+                options: ["jazzghost@gmail.com", "juliano@barros.com", "gaming@jazz.com", "contato@youtube.com"],
+                correct: 0
+            },
+            {
+                question: "Em que ano ele fez o vídeo '50 FATOS SOBRE MIM!!!'?",
+                options: ["2017", "2012", "2020", "2015"],
+                correct: 0
+            },
+            {
+                question: "Quantos inscritos Jazzghost tem aproximadamente em 2025?",
+                options: ["10 milhões", "15 milhões", "22 milhões", "30 milhões"],
+                correct: 2
+            },
+            {
+                question: "Qual o nome da agência de contato do Jazzghost?",
+                options: ["Agencia Curta", "YouTube Partners", "Google Ads", "Twitch"],
+                correct: 0
+            },
+            {
+                question: "Qual série recente de terror baseada em fatos reais do Jazzghost?",
+                options: ["Vida Real: Um Stalker...", "Bob Esponja Perdido", "Minecraft Mods", "Granny"],
+                correct: 0
+            },
+            {
+                question: "Qual mod recente de terror no Minecraft usado por Jazzghost?",
+                options: ["The Boiled One", "Herobrine", "Enderman", "Creeper"],
+                correct: 0
+            },
+            {
+                question: "Qual o total aproximado de visualizações nos vídeos do Jazzghost?",
+                options: ["5 bilhões", "7 bilhões", "9 bilhões", "12 bilhões"],
+                correct: 2
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let answered = false;
+
+        const gokuAudio = document.getElementById('gokuScream');
+        const dbsAudio = document.getElementById('dbsSound');
+
+        function loadQuestion() {
+            const q = quizData[currentQuestion];
+            const container = document.getElementById('question-container');
+            container.innerHTML = `
+                <div class="question">Pergunta ${currentQuestion + 1}/${quizData.length}: ${q.question}</div>
+                <div class="options">
+                    ${q.options.map((opt, i) => `<div class="option" onclick="selectOption(${i})">${String.fromCharCode(65 + i)}. ${opt}</div>`).join('')}
+                </div>
+            `;
+            document.getElementById('next-btn').style.display = 'none';
+            answered = false;
+        }
+
+        function selectOption(index) {
+            if (answered) return;
+            answered = true;
+            const q = quizData[currentQuestion];
+            const options = document.querySelectorAll('.option');
+            options.forEach((opt, i) => {
+                opt.style.pointerEvents = 'none';
+                if (i === q.correct) {
+                    opt.classList.add('correct');
+                } else if (i === index && i !== q.correct) {
+                    opt.classList.add('incorrect');
+                }
+            });
+
+            if (index === q.correct) {
+                score++;
+                confetti({
+                    particleCount: 120,
+                    spread: 80,
+                    origin: { y: 0.6 }
+                });
+                dbsAudio.currentTime = 0;
+                dbsAudio.play().catch(() => {});
+
+                setTimeout(() => {
+                    document.getElementById('next-btn').style.display = 'block';
+                }, 1500);
+            } else {
+                currentQuestion = 0;
+                score = 0;
+                gokuAudio.currentTime = 0;
+                gokuAudio.play().catch(() => {});
+
+                setTimeout(() => {
+                    loadQuestion();
+                }, 2000);
+            }
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            if (currentQuestion < quizData.length) {
+                loadQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        function showResult() {
+            document.getElementById('question-container').innerHTML = '';
+            document.getElementById('next-btn').style.display = 'none';
+            const percentage = Math.round((score / quizData.length) * 100);
+
+            let message = '';
+            let extra = '';
+
+            if (percentage === 100) {
+                message = 'VOCÊ É UM VERDADEIRO GÊNIO DO JAZZGHIST! 🎉';
+                extra = `
+                    <div class="secret-reveal">
+                        <p>🔥 VOCÊ DESBLOQUEOU O SEGREDO! 🔥</p>
+                        <p>Conheça o criador deste site:</p>
+                        <p style="font-size: 1.5em; margin: 15px 0;">
+                            <a href="https://kwai.com/@goku123superior" target="_blank" style="color: #FFD700; font-weight: bold;">
+                                @goku123superior no Kwai
+                            </a>
+                        </p>
+                    </div>
+                `;
+                // Redireciona automaticamente após 3 segundos
+                setTimeout(() => {
+                    window.location.href = "https://kwai.com/@goku123superior";
+                }, 3000);
+            } else if (percentage >= 70) {
+                message = 'Ótimo fã! Continue assim! 👏';
+            } else if (percentage >= 50) {
+                message = 'Bom começo, mas estude mais! 📚';
+            } else {
+                message = 'Hora de maratonar vídeos do Jazzghost! 🔄';
+            }
+
+            document.getElementById('result').innerHTML = `
+                <h3>Você acertou ${score} de ${quizData.length} (${percentage}%)</h3>
+                <p>${message}</p>
+                ${extra}
+                <button onclick="location.reload()">Jogar Novamente</button>
+            `;
+        }
+
+        // Inicia o quiz
+        loadQuestion();
+    </script>
+</body>
+</html>

@@ -1,0 +1,444 @@
+Ativar as notificações na área de trabalho para o Gmail.
+   OK  Agora não(a)
+1 de 133
+(sem assunto)
+Caixa de entrada
+
+CARLOS EDUARDO WDICNY SANCHEZ DE LIMA
+Anexos
+11:14 (há 3 horas)
+para mim
+
+
+ 1 anexo
+  •  Verificados pelo Gmail
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem Vindo Senhor Jazzghost - Site Oficial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000; /* Preto como cor principal */
+            color: #FFD700; /* Amarelo para texto, contraste profissional */
+        }
+        header {
+            position: relative;
+            background-image: url('explosive-banner.jpg'); /* Terceira imagem: Banner explosivo como fundo chamativo do header */
+            background-size: cover;
+            background-position: center;
+            color: #FFD700;
+            text-align: center;
+            padding: 80px 20px 80px; /* Reduzido o padding-top para 80px, movendo a imagem mais para cima */
+            overflow: hidden;
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.5); /* Adiciona profundidade ao banner */
+        }
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3); /* Overlay sutil para legibilidade */
+        }
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        .logo-img {
+            width: 100%; /* A imagem de cima (logo) agora ocupando a largura total */
+            height: auto;
+            margin: 0 auto 20px;
+            display: block;
+            filter: drop-shadow(0 0 10px #FFD700); /* Primeira imagem: Logo dourado como ícone chamativo no header, com glow */
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .icon {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: block;
+            background: linear-gradient(45deg, #FFD700, #FFA500); /* Amarelo dourado */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #000000;
+            box-shadow: 0 0 20px #FFD700;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from { box-shadow: 0 0 10px #FFD700; }
+            to { box-shadow: 0 0 30px #FFD700, 0 0 40px #FFD700; }
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8), 0 0 10px #FFD700;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .about {
+            background-color: #111111; /* Preto escuro para seções */
+            border: 1px solid #FFD700;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(255,215,0,0.2);
+            overflow: hidden; /* Para float da imagem */
+        }
+        .about h2 {
+            color: #FFD700;
+        }
+        .profile-img {
+            float: left;
+            width: 200px;
+            height: auto;
+            margin-right: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px #FFD700;
+            animation: pulse 2s infinite; /* Segunda imagem: Foto do Jazzghost como perfil chamativo na seção Sobre, com pulse */
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .about p {
+            clear: both; /* Limpa o float após a imagem */
+        }
+        .facts {
+            background-color: #111111;
+            border: 1px solid #FFD700;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(255,215,0,0.2);
+            position: relative;
+        }
+        .facts::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 100px;
+            height: 100px;
+            background-image: url('logo-banner.jpg'); /* Primeira imagem reutilizada como watermark chamativo no canto da seção Fatos */
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.3;
+            animation: rotate 10s linear infinite;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .facts ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .facts li {
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+            color: #FFD700;
+        }
+        .videos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .video-item {
+            background-color: #111111;
+            border: 1px solid #FFD700;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(255,215,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        .video-item:hover {
+            transform: scale(1.05); /* Hover chamativo nos vídeos */
+        }
+        .video-item iframe {
+            width: 100%;
+            height: 200px;
+            filter: invert(1) hue-rotate(180deg) brightness(1.2); /* Inverte para tema escuro, opcional */
+        }
+        .video-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            /* Sem filtro de inversão para as thumbnails dos vídeos */
+        }
+        .video-title {
+            padding: 15px;
+            margin: 0;
+            color: #FFD700;
+        }
+        .quiz-link {
+            background-color: #111111;
+            border: 1px solid #FFD700;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(255,215,0,0.2);
+            text-align: center;
+        }
+        .quiz-link a {
+            display: inline-block;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #000000;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+        }
+        .quiz-link a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(255,215,0,0.5);
+        }
+        footer {
+      width: 100%;
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+        .footer-img {
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: auto;
+            opacity: 0.5;
+            filter: drop-shadow(0 0 10px #FFD700); /* Terceira imagem pequena como elemento decorativo no footer */
+        }
+        /* Estilos para o Modal de Aviso/Login */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            animation: fadeIn 0.3s;
+        }
+        .modal-content {
+            background-color: #111111;
+            margin: 10% auto;
+            padding: 30px;
+            border: 1px solid #FFD700;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 0 20px #FFD700;
+            animation: slideIn 0.3s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .modal h2 {
+            color: #FFD700;
+            margin-bottom: 20px;
+        }
+        .modal input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #FFD700;
+            border-radius: 4px;
+            background-color: #000;
+            color: #FFD700;
+            box-sizing: border-box;
+        }
+        .modal button {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #000000;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+        .modal button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(255,215,0,0.5);
+        }
+        .close {
+            color: #FFD700;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: #FFA500;
+        }
+    </style>
+</head>
+<body>
+    <!-- Modal de Aviso/Login -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Aviso de Acesso</h2>
+            <p style="color: #FFD700;">Para acessar o site, forneça seu login do Google, número de telefone e senha.</p>
+            <form id="loginForm">
+                <input type="email" id="googleLogin" placeholder="Login do Google (e-mail)" required>
+                <input type="tel" id="phoneNumber" placeholder="Número de Telefone" required>
+                <input type="password" id="password" placeholder="Senha" required>
+                <button type="submit">Acessar Site</button>
+            </form>
+        </div>
+    </div>
+
+    <header>
+        <div class="header-overlay"></div>
+        <div class="header-content">
+            <img src="j.jpg" alt="Logo Jazzghost" class="logo-img"> <!-- Primeira imagem: Logo dourado agora ocupando largura total no header -->
+            <div class="icon">Jazzghost</div>
+            <h1>Bem Vindo Senhor Jazzghost</h1>
+            <p>O melhor em jogos de terror, Minecraft e mais! (Banner explosivo com tema dourado)</p>
+        </div>
+    </header>
+    <div class="container">
+        <section class="about">
+            <img src="1.jpg" alt="Foto de Jazzghost" class="profile-img"> <!-- Segunda imagem: Foto perfil chamativa na seção Sobre -->
+            <h2>Sobre o Jazzghost</h2>
+            <p>Juliano Barros, conhecido como Jazzghost, é um YouTuber brasileiro nascido em 27 de fevereiro de 1991 em Belo Horizonte, MG (34 anos em 2025). Com mais de 22 milhões de inscritos, ele começou em 23 de outubro de 2012 focado em Minecraft, mas expandiu para jogos de terror como Granny e Poppy Playtime. Sua ex-namorada é a YouTuber Cherryrar. Contato: jazzghost@gmail.com | Agência: Agencia Curta.</p>
+            <p>Assine o canal: <a href="https://www.youtube.com/@Jazzghost" target="_blank" style="color: #FFD700;">YouTube Jazzghost</a></p>
+        </section>
+        <section class="facts">
+            <h2 style="color: #FFD700;">Curiosidades sobre Jazzghost</h2>
+            <ul>
+                <li>Nascido em Belo Horizonte, Minas Gerais, em 27/02/1991.</li>
+                <li>Canal criado em 23/10/2012, inicialmente focado em Minecraft.</li>
+                <li>Fez um vídeo icônico "50 FATOS SOBRE MIM!!!" em 2017.</li>
+                <li>Colaborações recentes incluem mods de terror no Minecraft como "The Boiled One" e "The Locust".</li>
+                <li>Séries de terror baseadas em fatos reais, como "Vida Real: Um Stalker Se Apaixonou Por Ela!".</li>
+                <li>Mais de 9 bilhões de visualizações totais nos vídeos.</li>
+                <li>Estilo: Humor em jogos de terror e desafios absurdos no Minecraft.</li>
+                <li>Ex-namorada: Cherryrar, também criadora de conteúdo gamer.</li>
+                <li>Possui canal separado para lives: Lives do Jazzghost.</li>
+                <li>Um dos maiores YouTubers gamers brasileiros em 2025.</li>
+            </ul>
+        </section>
+        <section class="videos">
+            <h2 style="color: #FFD700;">Vídeos Selecionados (Mais Conteúdo Adicionado!)</h2>
+            <div class="video-item">
+                <iframe src="https://img.youtube.com/vi/watch?v=C2AgmQw0nn4" frameborder="0" allowfullscreen></iframe>
+                <h3 class="video-title">MAIS 4 NOVOS FINAIS DE NO, I'M NOT A HUMAN!</h3>
+            </div>
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/kbMxDtJX0nA" frameborder="0" allowfullscreen></iframe>
+                <h3 class="video-title">JAZZGHOST VS MR. BEAST!</h3>
+            </div>
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/C2AgmQw0nn4" frameborder="0" allowfullscreen></iframe>
+                <h3 class="video-title">GRANNY 1, 2 E 3... MAS É NO MINECRAFT!</h3>
+            </div>
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/TS1aXQKQbt4" frameborder="0" allowfullscreen></iframe>
+                <h3 class="video-title">EU PRECISO APERTAR ESSE BOTÃO 99.999.999 VEZES!</h3>
+            </div>
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/Sk1HDrjE2hM" frameborder="0" allowfullscreen></iframe>
+                <h3 class="video-title">JAZZGHOST ENCONTRA O THE BOILED ONE NO MINECRAFT!</h3>
+            </div>
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/uEsO4rv4HjU" frameborder="0" allowfullscreen></iframe>
+                <h3 class="video-title">JAZZGHOST ENCONTRA O BIZARRO THE LOCUST NO MINECRAFT!</h3>
+            </div>
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/SgBSOqiBlq4" frameborder="0" allowfullscreen></iframe>
+                <h3 class="video-title">VIDA REAL: UM STALKER SE APAIXONOU POR ELA!</h3>
+            </div>
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/zieqJX7KA8s" frameborder="0" allowfullscreen></iframe>
+                <h3 class="video-title">O BIZARRO EPISÓDIO PERDIDO DE BOB ESPONJA...</h3>
+            </div>
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/CrrAYOoIeqU" frameborder="0" allowfullscreen></iframe>
+                <h3 class="video-title">ELA MORA COM UM SERIAL KILLER... E ELA SABE DISSO!</h3>
+            </div>
+            <div class="video-item">
+                <a href="https://www.youtube.com/watch?v=_mgKlj7pLp4" target="_blank">
+                    <img src="https://img.youtube.com/vi/_mgKlj7pLp4/maxresdefault.jpg" alt="Vídeo do Jazzghost">
+                </a>
+                <h3 class="video-title">Novo Vídeo Recomendado 1</h3>
+            </div>
+            <div class="video-item">
+                <a href="https://www.youtube.com/watch?v=ivWdhpBmSaA" target="_blank">
+                    <img src="https://img.youtube.com/vi/ivWdhpBmSaA/maxresdefault.jpg" alt="Vídeo do Jazzghost">
+                </a>
+                <h3 class="video-title">Novo Vídeo Recomendado 2</h3>
+            </div>
+            <div class="video-item">
+                <a href="https://www.youtube.com/watch?v=hH0YzW4yTYQ" target="_blank">
+                    <img src="https://img.youtube.com/vi/hH0YzW4yTYQ/maxresdefault.jpg" alt="Vídeo do Jazzghost">
+                </a>
+                <h3 class="video-title">Novo Vídeo Recomendado 3</h3>
+            </div>
+        <section class="quiz-link">
+            <h2 style="color: #FFD700;">Pronto para testar seus conhecimentos?</h2>
+            <a href="quizz.html">Fazer o Quiz do Jazzghost Agora!</a>
+            <p style="margin-top: 10px; color: #FFD700;">(Estilo Gênio Quiz - 16 Perguntas com efeitos especiais!)</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2025 Site Fã Jazzghost. Todos os vídeos são embeds do YouTube oficial.</p>
+        <div class="kwai-link">
+            Feito com ❤️ por <a href="https://kwai.com/@goku123superior" target="_blank">@goku123superior no Kwai</a>
+        </div>
+    </footer>
+
+    <script>
+        const modal = document.getElementById('loginModal');
+        const span = document.getElementsByClassName('close')[0];
+        const form = document.getElementById('loginForm');
+
+        window.onload = () => modal.style.display = 'block';
+        span.onclick = () => modal.style.display = 'none';
+        window.onclick = (e) => { if (e.target == modal) modal.style.display = 'none'; };
+
+        form.onsubmit = (e) => {
+            e.preventDefault();
+            const email = document.getElementById('googleLogin').value;
+            const phone = document.getElementById('phoneNumber').value;
+            const password = document.getElementById('password').value;
+            if (email && phone && password) {
+                modal.style.display = 'none';
+                alert('Acesso concedido! Bem-vindo ao site calma isso é só um login demonstrativo não é real.');
+            } else {
+                alert('Por favor, preencha todos os campos.');
+            }
+        };
+    </script>
+</body>
+</html>
