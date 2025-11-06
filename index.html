@@ -9,19 +9,19 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #000000; /* Preto como cor principal */
-            color: #FFD700; /* Amarelo para texto, contraste profissional */
+            background-color: #000000;
+            color: #FFD700;
         }
         header {
             position: relative;
-            background-image: url('explosive-banner.jpg'); /* Terceira imagem: Banner explosivo como fundo chamativo do header */
+            background-image: url('explosive-banner.jpg');
             background-size: cover;
             background-position: center;
             color: #FFD700;
             text-align: center;
-            padding: 80px 20px 80px; /* Reduzido o padding-top para 80px, movendo a imagem mais para cima */
+            padding: 80px 20px 80px;
             overflow: hidden;
-            box-shadow: inset 0 0 50px rgba(0,0,0,0.5); /* Adiciona profundidade ao banner */
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.5);
         }
         .header-overlay {
             position: absolute;
@@ -29,18 +29,18 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.3); /* Overlay sutil para legibilidade */
+            background: rgba(0,0,0,0.3);
         }
         .header-content {
             position: relative;
             z-index: 1;
         }
         .logo-img {
-            width: 100%; /* A imagem de cima (logo) agora ocupando a largura total */
+            width: 100%;
             height: auto;
             margin: 0 auto 20px;
             display: block;
-            filter: drop-shadow(0 0 10px #FFD700); /* Primeira imagem: Logo dourado como ícone chamativo no header, com glow */
+            filter: drop-shadow(0 0 10px #FFD700);
             animation: float 3s ease-in-out infinite;
         }
         @keyframes float {
@@ -53,7 +53,7 @@
             border-radius: 50%;
             margin: 0 auto 20px;
             display: block;
-            background: linear-gradient(45deg, #FFD700, #FFA500); /* Amarelo dourado */
+            background: linear-gradient(45deg, #FFD700, #FFA500);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -78,13 +78,13 @@
             padding: 20px;
         }
         .about {
-            background-color: #111111; /* Preto escuro para seções */
+            background-color: #111111;
             border: 1px solid #FFD700;
             padding: 30px;
             margin-bottom: 30px;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(255,215,0,0.2);
-            overflow: hidden; /* Para float da imagem */
+            overflow: hidden;
         }
         .about h2 {
             color: #FFD700;
@@ -96,7 +96,7 @@
             margin-right: 20px;
             border-radius: 10px;
             box-shadow: 0 0 20px #FFD700;
-            animation: pulse 2s infinite; /* Segunda imagem: Foto do Jazzghost como perfil chamativo na seção Sobre, com pulse */
+            animation: pulse 2s infinite;
         }
         @keyframes pulse {
             0% { transform: scale(1); }
@@ -104,7 +104,7 @@
             100% { transform: scale(1); }
         }
         .about p {
-            clear: both; /* Limpa o float após a imagem */
+            clear: both;
         }
         .facts {
             background-color: #111111;
@@ -122,7 +122,7 @@
             right: 10px;
             width: 100px;
             height: 100px;
-            background-image: url('logo-banner.jpg'); /* Primeira imagem reutilizada como watermark chamativo no canto da seção Fatos */
+            background-image: url('logo-banner.jpg');
             background-size: contain;
             background-repeat: no-repeat;
             opacity: 0.3;
@@ -155,18 +155,14 @@
             transition: transform 0.3s ease;
         }
         .video-item:hover {
-            transform: scale(1.05); /* Hover chamativo nos vídeos */
+            transform: scale(1.05);
         }
-        .video-item iframe {
-            width: 100%;
-            height: 200px;
-            filter: invert(1) hue-rotate(180deg) brightness(1.2); /* Inverte para tema escuro, opcional */
-        }
+        /* REMOVIDO O FILTRO DE INVERSÃO */
+        .video-item iframe,
         .video-item img {
             width: 100%;
             height: 200px;
             object-fit: cover;
-            /* Sem filtro de inversão para as thumbnails dos vídeos */
         }
         .video-title {
             padding: 15px;
@@ -198,12 +194,12 @@
             box-shadow: 0 6px 15px rgba(255,215,0,0.5);
         }
         footer {
-      width: 100%;
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
         .footer-img {
             position: absolute;
             top: -50px;
@@ -212,9 +208,8 @@
             width: 150px;
             height: auto;
             opacity: 0.5;
-            filter: drop-shadow(0 0 10px #FFD700); /* Terceira imagem pequena como elemento decorativo no footer */
+            filter: drop-shadow(0 0 10px #FFD700);
         }
-        /* Estilos para o Modal de Aviso/Login */
         .modal {
             display: none;
             position: fixed;
@@ -291,7 +286,7 @@
     <!-- Modal de Aviso/Login -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span class="close">×</span>
             <h2>Aviso de Acesso</h2>
             <p style="color: #FFD700;">Para acessar o site, forneça seu login do Google, número de telefone e senha.</p>
             <form id="loginForm">
@@ -306,7 +301,7 @@
     <header>
         <div class="header-overlay"></div>
         <div class="header-content">
-            <img src="j.jpg" alt="Logo Jazzghost" class="logo-img"> <!-- Primeira imagem: Logo dourado agora ocupando largura total no header -->
+            <img src="j.jpg" alt="Logo Jazzghost" class="logo-img">
             <div class="icon">Jazzghost</div>
             <h1>Bem Vindo Senhor Jazzghost</h1>
             <p>O melhor em jogos de terror, Minecraft e mais! (Banner explosivo com tema dourado)</p>
@@ -314,7 +309,7 @@
     </header>
     <div class="container">
         <section class="about">
-            <img src="1.jpg" alt="Foto de Jazzghost" class="profile-img"> <!-- Segunda imagem: Foto perfil chamativa na seção Sobre -->
+            <img src="1.jpg" alt="Foto de Jazzghost" class="profile-img">
             <h2>Sobre o Jazzghost</h2>
             <p>Juliano Barros, conhecido como Jazzghost, é um YouTuber brasileiro nascido em 27 de fevereiro de 1991 em Belo Horizonte, MG (34 anos em 2025). Com mais de 22 milhões de inscritos, ele começou em 23 de outubro de 2012 focado em Minecraft, mas expandiu para jogos de terror como Granny e Poppy Playtime. Sua ex-namorada é a YouTuber Cherryrar. Contato: jazzghost@gmail.com | Agência: Agencia Curta.</p>
             <p>Assine o canal: <a href="https://www.youtube.com/@Jazzghost" target="_blank" style="color: #FFD700;">YouTube Jazzghost</a></p>
@@ -337,7 +332,7 @@
         <section class="videos">
             <h2 style="color: #FFD700;">Vídeos Selecionados (Mais Conteúdo Adicionado!)</h2>
             <div class="video-item">
-                <iframe src="https://img.youtube.com/vi/watch?v=C2AgmQw0nn4" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/C2AgmQw0nn4" frameborder="0" allowfullscreen></iframe>
                 <h3 class="video-title">MAIS 4 NOVOS FINAIS DE NO, I'M NOT A HUMAN!</h3>
             </div>
             <div class="video-item">
@@ -390,6 +385,7 @@
                 </a>
                 <h3 class="video-title">Novo Vídeo Recomendado 3</h3>
             </div>
+        </section>
         <section class="quiz-link">
             <h2 style="color: #FFD700;">Pronto para testar seus conhecimentos?</h2>
             <a href="quizz.html">Fazer o Quiz do Jazzghost Agora!</a>
@@ -427,5 +423,5 @@
         };
     </script>
 </body>
-
 </html>
+
